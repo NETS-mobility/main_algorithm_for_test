@@ -11,12 +11,27 @@
 
 // const pool2 = require("../module/mysql2");
 
-const GetArrangeTime = async (service) => {
-  if (service == "basic") {
-    return 10; //db에서 가져오기
-  } else {
-    return 20; //db에서 가져오기
+const GetArrangeTime = (service_kind_id) => {
+  switch (
+    service_kind_id //db에서 가져오기
+  ) {
+    case 2:
+    case 3:
+      return 10;
+    case 4:
+    case 5:
+      return 20;
   }
+  //네츠 휠체어 편도 = 2
+  //네츠 휠체어 왕복 = 3
+  //네츠 휠체어 플러스 편도 = 4
+  //네츠 휠체어 플러스 왕복 = 5
+
+  // if (service == "basic") {
+  //   return 10; //db에서 가져오기
+  // } else {
+  //   return 20; //db에서 가져오기
+  // }
   // let result;
   // const connection = await pool2.getConnection(async (conn) => conn);
   // try {
@@ -33,4 +48,5 @@ const GetArrangeTime = async (service) => {
   //  }
 };
 
-module.exports = GetArrangeTime;
+export default GetArrangeTime;
+// module.exports = GetArrangeTime;
