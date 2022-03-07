@@ -1,10 +1,10 @@
-// import GetResult from "../algorithm/getResult";
-// import GetA from "../algorithm/getA";
-// import GetB from "../algorithm/getB";
-// import GetC from "../algorithm/getC";
-// import GetD from "../algorithm/getD";
-// import GetL1 from "../algorithm/getL1";
-// import GetL2 from "../algorithm/getL2";
+// import GetDispatchResult from "../algorithm/GetDispatchResult";
+// import GetEstimatedTime from "../algorithm/GetEstimatedTime";
+// import GetPickupTime from "../algorithm/GetPickupTime";
+// import GetPrevArrivalTime from "../algorithm/GetPrevArrivalTime";
+// import GetDispatchAvailableCar from "../algorithm/GetDispatchAvailableCar";
+// import GetL1 from "../algorithm/GetL1";
+// import GetL2 from "../algorithm/GetL2";
 
 // const Case4 = (testData) => {
 //   const {
@@ -35,7 +35,7 @@
 //   let hos_arr_time = rev_date + "T" + old_hos_arr_time + "+0900";
 //   let hos_dep_time = rev_date + "T" + old_hos_dep_time + "+0900";
 
-//   a = await GetA(
+//   a = await GetEstimatedTime(
 //     { lon: pickup_y, lat: pickup_x },
 //     { lon: hos_y, lat: hos_x },
 //     "집-병원",
@@ -44,36 +44,36 @@
 //   ).then((res) => res);
 //   console.log("case4 a==", a);
 
-//   b = GetB(hos_arr_time, a);
+//   b = GetPickupTime(hos_arr_time, a);
 //   console.log("case4 b==", b);
 
 //   L1 = GetL1(a, b);
 //   console.log("case4 L1==", L1);
 
-//   cArr = await GetC(L1, pickup_x, pickup_y).then((res) => res);
+//   cArr = await GetPrevArrivalTime(L1, pickup_x, pickup_y).then((res) => res);
 //   console.log("case4 cArr==", cArr);
 
-//   a1 = GetA(
+//   a1 = GetEstimatedTime(
 //     { lon: pickup_y, lat: pickup_x },
 //     { lon: hos_y, lat: hos_x },
 //     hos_arr_time
 //   );
-//   b1 = GetB(hos_arr_time, a1);
+//   b1 = GetPickupTime(hos_arr_time, a1);
 //   L11 = GetL1(a1, b1);
-//   cArr1 = GetC(L11, pickup_x, pickup_y);
+//   cArr1 = GetPrevArrivalTime(L11, pickup_x, pickup_y);
 //   L21 = GetL2(b1, cArr1);
-//   L31 = GetD(L21, drop_x, drop_y);
+//   L31 = GetDispatchAvailableCar(L21, drop_x, drop_y);
 
-//   a2 = GetA(
+//   a2 = GetEstimatedTime(
 //     { lon: pickup_y, lat: pickup_x },
 //     { lon: drop_y, lat: drop_x },
 //     hos_dep_time
 //   );
 //   b2 = hos_dep_time;
 //   L12 = GetL1(a2, b2);
-//   cArr2 = GetC(L12, hos_x, hos_y);
+//   cArr2 = GetPrevArrivalTime(L12, hos_x, hos_y);
 //   L22 = GetL2(b2, cArr2);
-//   L32 = GetD(L22, drop_x, drop_y);
+//   L32 = GetDispatchAvailableCar(L22, drop_x, drop_y);
 
 //   if (L31.length != 0 && L32.length != 0) {
 //   }

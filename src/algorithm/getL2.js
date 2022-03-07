@@ -1,9 +1,9 @@
 import ToKoreanTime from "../util/toKoreanTime";
-const GetL2 = (b, cArr) => {
+const GetL2 = (b, prevArrivalTimeArray) => {
   const L2 = [];
-  for (let i = 0; i < cArr.length; i++) {
-    if (ToKoreanTime(cArr[i].c) < b) {
-      L2.push(cArr[i]);
+  for (let i = 0; i < prevArrivalTimeArray.length; i++) {
+    if (ToKoreanTime(prevArrivalTimeArray[i].prevArrivalTime) < b) {
+      L2.push(prevArrivalTimeArray[i]);
     }
   }
   return L2;

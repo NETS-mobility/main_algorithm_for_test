@@ -1,9 +1,9 @@
 import TmapTimeMachine from "./tmapTimeMachine";
-import Func from "./getCarPreNextRevInfo";
+import Func from "./GetCarPreNextRevInfo";
 import AddMinuteToDate from "../util/addMinuteToDate";
 
-const GetC = async (L1, res_x, res_y) => {
-  const cArr = [];
+const GetPrevArrivalTime = async (L1, res_x, res_y) => {
+  const prevArrivalTimeArray = [];
   try {
     for (let i = 0; i < L1.length; i++) {
       const car_schedule = Func(i);
@@ -18,13 +18,16 @@ const GetC = async (L1, res_x, res_y) => {
       ).then((tmapTime) => {
         const resDate = new Date(car_schedule.prev_terminate_time);
         const ctime = AddMinuteToDate(resDate, tmapTime).toString(); //tmap(이전예약->현재 예약 픽업 장소) + 20
-        cArr.push({ car_id: L1[i].car_id, c: new Date(ctime) });
+        prevArrivalTimeArray.push({
+          car_id: L1[i].car_id,
+          prevArrivalTime: new Date(ctime),
+        });
       });
     }
   } catch (err) {
     return err;
   }
-  return cArr;
+  return prevArrivalTimeArray;
 };
 
-export default GetC;
+export default GetPrevArrivalTime;

@@ -1,13 +1,18 @@
-import { Case1, Case2, Case3 } from "../case";
-import { testData1, testData2, testData3, testData4 } from "./tmpData";
+import { Case1, Case2, Case3 } from "./case";
+import {
+  testData1,
+  testData2,
+  testData3,
+  testData4,
+} from "./algorithm/tmpData";
 
 const Algo = async () => {
   let isOverPoint = 0;
-  if (testData4.gowithHospitalTime > 120) {
+  if (testData2.gowithHospitalTime > 120) {
     isOverPoint = 1; // 2시간 초과
   }
 
-  if (testData4.dire == "집-집") {
+  if (testData2.dire == "집-집") {
     if (isOverPoint) {
       let dispatch4_1 = await Case1(testData4);
       let dispatch4_2 = await Case2(testData4);
