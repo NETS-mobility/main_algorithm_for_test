@@ -55,4 +55,90 @@ const testData4 = {
   service_kind_id: 5, //서비스 종류 1: 네츠무브 2: 네츠휠체어편도 3: 네츠휠체어왕복 4:네츠휠체어플러스편도 5:네츠휠체어플러스왕복
 };
 
-export { testData1, testData2, testData3, testData4 };
+const testDataArr1 = [ {
+    dire: "집-집",
+    pickup_x: 126.831157,
+    pickup_y: 37.573392,
+    drop_x: 126.831157,
+    drop_y: 37.573392,
+    hos_x: 126.886260, // 이대목동병원
+    hos_y: 37.538960,
+    old_hos_arr_time: "12:00:00",
+    old_hos_dep_time: "15:00:00",
+    rev_date: "2022-03-04",
+    gowithHospitalTime: 180,
+    service_kind_id: 3,
+  },
+  {
+    dire: "집-병원",
+    pickup_x: 126.911092,
+    pickup_y: 37.581616,
+    drop_x: 0,
+    drop_y: 0,
+    hos_x: 126.886260,
+    hos_y: 37.538960,
+    old_hos_arr_time: "10:00:00",
+    old_hos_dep_time: "",
+    rev_date: "2022-03-04",
+    gowithHospitalTime: 0,
+    service_kind_id: 1,
+  },
+  {
+    dire: "병원-집",
+    pickup_x: 0,
+    pickup_y: 0,
+    drop_x: 126.911092,
+    drop_y: 37.581616,
+    hos_x: 126.940612, // 연세세브란스병원
+    hos_y: 37.562976,
+    old_hos_arr_time: "",
+    old_hos_dep_time: "11:00:00",
+    rev_date: "2022-03-04",
+    gowithHospitalTime: 0,
+    service_kind_id: 2,
+  },
+  {
+    dire: "집-집",
+    pickup_x: 126.918114,
+    pickup_y: 37.593509,
+    drop_x: 126.955002,
+    drop_y: 37.537367,
+    hos_x: 126.940612,
+    hos_y: 37.562976,
+    old_hos_arr_time: "15:00:00",
+    old_hos_dep_time: "16:30:00",
+    rev_date: "2022-03-04",
+    gowithHospitalTime: 90,
+    service_kind_id: 5,
+  },
+  {
+    dire: "집-병원",
+    pickup_x: 126.955002,
+    pickup_y: 37.537367,
+    drop_x: 0,
+    drop_y: 0,
+    hos_x: 127.087910, // 삼성서울병원
+    hos_y: 37.489587,
+    old_hos_arr_time: "14:00:00",
+    old_hos_dep_time: "",
+    rev_date: "2022-03-04",
+    gowithHospitalTime: 0,
+    service_kind_id: 1,
+  },
+  {
+    dire: "병원-집",
+    pickup_x: 0,
+    pickup_y: 0,
+    drop_x: 126.955002,
+    drop_y: 37.537367,
+    hos_x: 127.087910,
+    hos_y: 37.489587,
+    old_hos_arr_time: "",
+    old_hos_dep_time: "17:00:00",
+    rev_date: "2022-03-04",
+    gowithHospitalTime: 0,
+    service_kind_id: 4,
+  }
+];
+
+export { testData1, testData2, testData3, testData4, testDataArr1 };
