@@ -11,12 +11,6 @@ const testData1 = {
   old_hos_dep_time: "",
   rev_date: "2022-03-04",
   gowithHospitalTime: 0,
-  prev_terminate_time: "2022-03-04 11:00:00",
-  post_pickup_time: "2022-03-04 17:00:00",
-  prev_last_x: 126.937838,
-  prev_last_y: 37.5535483,
-  post_first_x: 126.922458,
-  post_first_y: 37.5861458,
   service_kind_id: 4,
 };
 const testData2 = {
@@ -32,13 +26,37 @@ const testData2 = {
   old_hos_dep_time: "14:00:00",
   rev_date: "2022-03-04",
   gowithHospitalTime: 0,
-  prev_terminate_time: "2022-03-04 11:00:00",
-  post_pickup_time: "2022-03-04 17:00:00",
-  prev_last_x: 126.937838,
-  prev_last_y: 37.5535483,
-  post_first_x: 126.922458,
-  post_first_y: 37.5861458,
   service_kind_id: 4,
 };
+const testData3 = {
+  dire: "집-집",
+  pickup_x: 127.078202,
+  pickup_y: 37.618934,
+  drop_x: 127.078202,
+  drop_y: 37.618934,
+  hos_x: 127.034464,
+  hos_y: 37.5068891,
+  pickup_time: "",
+  old_hos_arr_time: "15:00:00",
+  old_hos_dep_time: "15:50:00",
+  rev_date: "2022-03-04",
+  gowithHospitalTime: 50,
+  service_kind_id: 5,
+};
+const testData4 = {
+  dire: "집-집",
+  pickup_x: 127.078202,
+  pickup_y: 37.618934,
+  drop_x: 127.078202,
+  drop_y: 37.618934,
+  hos_x: 127.034464,
+  hos_y: 37.5068891,
+  pickup_time: "",
+  old_hos_arr_time: "15:00:00",
+  old_hos_dep_time: "17:30:00",
+  rev_date: "2022-03-04",
+  gowithHospitalTime: 150,
+  service_kind_id: 5,
+};
 
-export { testData1, testData2 };
+export { testData1, testData2, testData3, testData4 };

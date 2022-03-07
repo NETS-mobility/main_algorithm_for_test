@@ -56,7 +56,11 @@ const Case2 = async (testData) => {
   dispatch = GetResult(L3, cArr);
   console.log("case2 dispatch==", dispatch);
 
-  return dispatch[0].car_id; //최종 배차된 차의 car_id
+  if (dispatch == -1) {
+    return -1;
+  } else {
+    return dispatch[0].car_id; //최종 배차된 차의 car_id
+  }
 };
 
 export default Case2;
