@@ -1,5 +1,5 @@
 import "./App.css";
-import Algo from "./algorithm/algo";
+import Algo from "./algo";
 
 const App = () => {
   return (

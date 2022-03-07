@@ -1,9 +1,15 @@
 import TmapTimeMachine from "./tmapTimeMachine";
-import GetArrangeTime from "./getArrangeTime";
+import GetArrangeTime from "./GetArrangeTime";
 
-const GetA = async (departure, arrival, way, hosTime, service_kind_id) => {
+const GetEstimatedTime = async (
+  departure,
+  arrival,
+  way,
+  hosTime,
+  service_kind_id
+) => {
   let moveType = "";
-  let a = 0;
+  let estimatedTime = 0;
 
   if (way == "집-병원") {
     moveType = "departure";
@@ -20,13 +26,13 @@ const GetA = async (departure, arrival, way, hosTime, service_kind_id) => {
       moveType,
       hosTime
     ).then((tmapTime) => {
-      a = tmapTime + 20 + GetArrangeTime(service_kind_id); //a1
+      estimatedTime = tmapTime + 20 + GetArrangeTime(service_kind_id); //a1
     });
-    a = a * 60000; //minutes -> milliseconds
-    return a;
+    estimatedTime = estimatedTime * 60000; //minutes -> milliseconds
+    return estimatedTime;
   } catch (err) {
     return err;
   }
 };
 
-export default GetA;
+export default GetEstimatedTime;
