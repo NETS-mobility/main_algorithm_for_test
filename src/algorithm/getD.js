@@ -19,13 +19,8 @@ const GetD = async (L2, drop_x, drop_y, hos_arr_time) => {
       nextRes.post_pickup_time
     ).then((tmapTime) => {
       const resDate = new Date(nextRes.post_pickup_time);
-      // console.log("resDate==", resDate);
-      // console.log("tmapTime==", tmapTime);
       const d = AddMinuteToDate(resDate, -tmapTime);
-      // console.log("나는d==", d);
-      // console.log("나는 hos_arr_time==", new_hos_arr_time);
       if (ToKoreanTime(AddMinuteToDate(new_hos_arr_time, 20)) < ToKoreanTime(d))
-        // L3.push(L2[i].car_id, L2[i].c);
         L3.push({ car_id: L2[i].car_id, c: L2[i].c });
     });
   }
