@@ -10,9 +10,9 @@ const testDataArr2 = [
     hos_x: 126.92435, // 서울특별시보라매병원(서울 동작구)
     hos_y: 37.493277,
     old_hos_arr_time: "10:20:00",
-    old_hos_dep_time: "12:30:00",
+    old_hos_dep_time: "12:40:00",
     rev_date: "2022-03-04",
-    gowithHospitalTime: 130, // 2시간 초과
+    gowithHospitalTime: 140, // 2시간 초과
     service_kind_id: 5,
   },
   {
@@ -54,10 +54,10 @@ const testDataArr2 = [
     drop_y: 37.504999,
     hos_x: 127.102528, // 잠실수가정의학과의원(서울 송파구)
     hos_y: 37.514609,
-    old_hos_arr_time: "13:50:00",
-    old_hos_dep_time: "15:00:00",
+    old_hos_arr_time: "13:40:00",
+    old_hos_dep_time: "14:20:00",
     rev_date: "2022-03-04",
-    gowithHospitalTime: 70, // 2시간 이하
+    gowithHospitalTime: 40, // 2시간 이하
     service_kind_id: 3,
   },
   {

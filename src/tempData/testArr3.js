@@ -147,9 +147,9 @@ const testDataArr3 = [
     hos_x: 127.13252716586848,
     hos_y: 37.60226981422886,
     old_hos_arr_time: "14:00:00",
-    old_hos_dep_time: "16:50:00",
+    old_hos_dep_time: "14:40:00",
     rev_date: "2022-03-04",
-    gowithHospitalTime: 170,
+    gowithHospitalTime: 40,
     service_kind_id: 5,
   },
 ];

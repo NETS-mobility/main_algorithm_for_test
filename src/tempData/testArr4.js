@@ -11,9 +11,9 @@ export const testDataArr4 = [
     hos_x: 127.10912878461559, // 서울아산병원(서울 송파구)
     hos_y: 37.52764581761841,
     old_hos_arr_time: "09:00:00",
-    old_hos_dep_time: "12:10:00",
+    old_hos_dep_time: "12:20:00",
     rev_date: "2022-03-04",
-    gowithHospitalTime: 190, // 2시간 초과
+    gowithHospitalTime: 200, // 2시간 초과
     service_kind_id: 3,
   },
   {
@@ -26,9 +26,9 @@ export const testDataArr4 = [
     hos_x: 126.88645385577995, // 이대목동병원(서울 양천구)
     hos_y: 37.53660908489781,
     old_hos_arr_time: "10:00:00",
-    old_hos_dep_time: "11:20:00",
+    old_hos_dep_time: "11:00:00",
     rev_date: "2022-03-04",
-    gowithHospitalTime: 80, // 2시간 이하
+    gowithHospitalTime: 60, // 2시간 이하
     service_kind_id: 3,
   },
   {
