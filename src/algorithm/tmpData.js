@@ -55,14 +55,15 @@ const testData4 = {
   service_kind_id: 5, //서비스 종류 1: 네츠무브 2: 네츠휠체어편도 3: 네츠휠체어왕복 4:네츠휠체어플러스편도 5:네츠휠체어플러스왕복
 };
 
-const testDataArr1 = [ {
+const testDataArr1 = [
+  {
     dire: "집-집",
     pickup_x: 126.831157,
     pickup_y: 37.573392,
     drop_x: 126.831157,
     drop_y: 37.573392,
-    hos_x: 126.886260, // 이대목동병원
-    hos_y: 37.538960,
+    hos_x: 126.88626, // 이대목동병원
+    hos_y: 37.53896,
     old_hos_arr_time: "12:00:00",
     old_hos_dep_time: "15:00:00",
     rev_date: "2022-03-04",
@@ -75,8 +76,8 @@ const testDataArr1 = [ {
     pickup_y: 37.581616,
     drop_x: 0,
     drop_y: 0,
-    hos_x: 126.886260,
-    hos_y: 37.538960,
+    hos_x: 126.88626,
+    hos_y: 37.53896,
     old_hos_arr_time: "10:00:00",
     old_hos_dep_time: "",
     rev_date: "2022-03-04",
@@ -117,7 +118,7 @@ const testDataArr1 = [ {
     pickup_y: 37.537367,
     drop_x: 0,
     drop_y: 0,
-    hos_x: 127.087910, // 삼성서울병원
+    hos_x: 127.08791, // 삼성서울병원
     hos_y: 37.489587,
     old_hos_arr_time: "14:00:00",
     old_hos_dep_time: "",
@@ -131,17 +132,18 @@ const testDataArr1 = [ {
     pickup_y: 0,
     drop_x: 126.955002,
     drop_y: 37.537367,
-    hos_x: 127.087910,
+    hos_x: 127.08791,
     hos_y: 37.489587,
     old_hos_arr_time: "",
     old_hos_dep_time: "17:00:00",
     rev_date: "2022-03-04",
     gowithHospitalTime: 0,
     service_kind_id: 4,
-  }
+  },
 ];
 
-const testDataArr2 = [ {
+const testDataArr2 = [
+  {
     dire: "집-집",
     pickup_x: 126.875404, // 경기 광명시
     pickup_y: 37.471648,
@@ -151,7 +153,7 @@ const testDataArr2 = [ {
     hos_y: 37.493277,
     old_hos_arr_time: "10:20:00",
     old_hos_dep_time: "12:30:00",
-    rev_date: "2022-03-14",
+    rev_date: "2022-03-04",
     gowithHospitalTime: 130, // 2시간 초과
     service_kind_id: 5,
   },
@@ -165,7 +167,7 @@ const testDataArr2 = [ {
     hos_y: 37.564963,
     old_hos_arr_time: "14:10:00",
     old_hos_dep_time: "",
-    rev_date: "2022-03-15",
+    rev_date: "2022-03-04",
     gowithHospitalTime: 30, // 2시간 이하(기본)
     service_kind_id: 2,
   },
@@ -179,7 +181,7 @@ const testDataArr2 = [ {
     hos_y: 37.562325,
     old_hos_arr_time: "",
     old_hos_dep_time: "11:35:00",
-    rev_date: "2022-03-14",
+    rev_date: "2022-03-04",
     gowithHospitalTime: 0, // 네츠 무브
     service_kind_id: 1,
   },
@@ -193,7 +195,7 @@ const testDataArr2 = [ {
     hos_y: 37.514609,
     old_hos_arr_time: "13:50:00",
     old_hos_dep_time: "15:00:00",
-    rev_date: "2022-03-15",
+    rev_date: "2022-03-04",
     gowithHospitalTime: 70, // 2시간 이하
     service_kind_id: 3,
   },
@@ -207,7 +209,7 @@ const testDataArr2 = [ {
     hos_y: 37.612598,
     old_hos_arr_time: "14:15:00",
     old_hos_dep_time: "",
-    rev_date: "2022-03-14",
+    rev_date: "2022-03-04",
     gowithHospitalTime: 60, // 2시간 이하
     service_kind_id: 2,
   },
@@ -221,10 +223,105 @@ const testDataArr2 = [ {
     hos_y: 37.396288,
     old_hos_arr_time: "",
     old_hos_dep_time: "17:25:00",
-    rev_date: "2022-03-15",
+    rev_date: "2022-03-04",
     gowithHospitalTime: 130, // 2시간 초과
     service_kind_id: 4,
-  }
+  },
 ];
 
-export { testData1, testData2, testData3, testData4, testDataArr1, testDataArr2 };
+const testDataArr4 = [
+  {
+    dire: "집-집",
+    pickup_x: 127.02724164043836, // 서울 성북구
+    pickup_y: 37.612667746097635,
+    drop_x: 127.02724164043836, // 서울 성북구
+    drop_y: 37.612667746097635,
+    hos_x: 127.10912878461559, // 서울아산병원(서울 송파구)
+    hos_y: 37.52764581761841,
+    old_hos_arr_time: "09:00:00",
+    old_hos_dep_time: "12:10:00",
+    rev_date: "2022-03-04",
+    gowithHospitalTime: 190, // 2시간 초과
+    service_kind_id: 3,
+  },
+  {
+    dire: "집-집",
+    pickup_x: 127.02724164043836, // 서울 성북구
+    pickup_y: 37.612667746097635,
+    drop_x: 127.02724164043836, // 서울 성북구
+    drop_y: 37.612667746097635,
+    hos_x: 126.88645385577995, // 이대목동병원(서울 양천구)
+    hos_y: 37.53660908489781,
+    old_hos_arr_time: "10:00:00",
+    old_hos_dep_time: "11:20:00",
+    rev_date: "2022-03-04",
+    gowithHospitalTime: 80, // 2시간 이하
+    service_kind_id: 3,
+  },
+  {
+    dire: "병원-집",
+    pickup_x: 0,
+    pickup_y: 0,
+    drop_x: 126.90314484252985, // 서울 마포구
+    drop_y: 37.55518015322536,
+    hos_x: 126.99872716899263, // 서울대학교병원(서울 종로구)
+    hos_y: 37.58188917344577,
+    old_hos_arr_time: "",
+    old_hos_dep_time: "15:40:00",
+    rev_date: "2022-03-04",
+    gowithHospitalTime: 0, // 병원동행 없음
+    service_kind_id: 4,
+  },
+  {
+    dire: "집-병원",
+    pickup_x: 127.2241536387928, // 경기 하남시
+    pickup_y: 37.547138852850175,
+    drop_x: 0,
+    drop_y: 0,
+    hos_x: 127.04596381512653, // 연세대학교강남세브란스병원(서울 강남구)
+    hos_y: 37.496389873323274,
+    old_hos_arr_time: "12:00:00",
+    old_hos_dep_time: "",
+    rev_date: "2022-03-04",
+    gowithHospitalTime: 0, // 병원동행없음
+    service_kind_id: 4,
+  },
+  {
+    dire: "집-병원",
+    pickup_x: 127.03040435367795, // 서울 강남구
+    pickup_y: 37.49897739851267,
+    drop_x: 0,
+    drop_y: 0,
+    hos_x: 127.12378814174657, // 분당서울대학교병원(경기 성남시)
+    hos_y: 37.356932642180276,
+    old_hos_arr_time: "17:00:00",
+    old_hos_dep_time: "",
+    rev_date: "2022-03-04",
+    gowithHospitalTime: 20, // 병원동행 20분
+    service_kind_id: 4,
+  },
+  {
+    dire: "집-병원",
+    pickup_x: 126.91071171560142, // 서울 은평구
+    pickup_y: 37.60423270301038,
+    drop_x: 0,
+    drop_y: 0,
+    hos_x: 126.83045342934018, // 명지병원(경기 고양시)
+    hos_y: 37.64653388815453,
+    old_hos_arr_time: "10:00:00",
+    old_hos_dep_time: "",
+    rev_date: "2022-03-04",
+    gowithHospitalTime: 50, // 병원동행 50분
+    service_kind_id: 2,
+  },
+];
+
+export {
+  testData1,
+  testData2,
+  testData3,
+  testData4,
+  testDataArr1,
+  testDataArr2,
+  testDataArr4,
+};
