@@ -2,6 +2,7 @@
 
 export const testDataArr4 = [
   {
+    //rev_id = 4-1
     dire: "집-집",
     pickup_x: 127.02724164043836, // 서울 성북구
     pickup_y: 37.612667746097635,
@@ -16,6 +17,7 @@ export const testDataArr4 = [
     service_kind_id: 3,
   },
   {
+    //rev_id = 4-2
     dire: "집-집",
     pickup_x: 127.02724164043836, // 서울 성북구
     pickup_y: 37.612667746097635,
@@ -30,6 +32,7 @@ export const testDataArr4 = [
     service_kind_id: 3,
   },
   {
+    //rev_id = 4-3
     dire: "병원-집",
     pickup_x: 0,
     pickup_y: 0,
@@ -44,6 +47,7 @@ export const testDataArr4 = [
     service_kind_id: 4,
   },
   {
+    //rev_id = 4-4
     dire: "집-병원",
     pickup_x: 127.2241536387928, // 경기 하남시
     pickup_y: 37.547138852850175,
@@ -58,6 +62,7 @@ export const testDataArr4 = [
     service_kind_id: 4,
   },
   {
+    //rev_id = 4-5
     dire: "집-병원",
     pickup_x: 127.03040435367795, // 서울 강남구
     pickup_y: 37.49897739851267,
@@ -72,6 +77,7 @@ export const testDataArr4 = [
     service_kind_id: 4,
   },
   {
+    //rev_id = 4-6
     dire: "집-병원",
     pickup_x: 126.91071171560142, // 서울 은평구
     pickup_y: 37.60423270301038,

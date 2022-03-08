@@ -1,6 +1,7 @@
 //장형준
 const testDataArr1 = [
   {
+    //rev_id = 1-1
     dire: "집-집",
     pickup_x: 126.831157,
     pickup_y: 37.573392,
@@ -15,6 +16,7 @@ const testDataArr1 = [
     service_kind_id: 3,
   },
   {
+    //rev_id = 1-2
     dire: "집-병원",
     pickup_x: 126.911092,
     pickup_y: 37.581616,
@@ -29,6 +31,7 @@ const testDataArr1 = [
     service_kind_id: 1,
   },
   {
+    //rev_id = 1-3
     dire: "병원-집",
     pickup_x: 0,
     pickup_y: 0,
@@ -43,6 +46,7 @@ const testDataArr1 = [
     service_kind_id: 2,
   },
   {
+    //rev_id = 1-4
     dire: "집-집",
     pickup_x: 126.918114,
     pickup_y: 37.593509,
@@ -57,6 +61,7 @@ const testDataArr1 = [
     service_kind_id: 5,
   },
   {
+    //rev_id = 1-5
     dire: "집-병원",
     pickup_x: 126.955002,
     pickup_y: 37.537367,
@@ -71,6 +76,7 @@ const testDataArr1 = [
     service_kind_id: 1,
   },
   {
+    //rev_id = 1-6
     dire: "병원-집",
     pickup_x: 0,
     pickup_y: 0,

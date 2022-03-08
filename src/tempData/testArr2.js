@@ -1,6 +1,7 @@
 //강윤서
 const testDataArr2 = [
   {
+    //rev_id = 2-1
     dire: "집-집",
     pickup_x: 126.875404, // 경기 광명시
     pickup_y: 37.471648,
@@ -15,6 +16,7 @@ const testDataArr2 = [
     service_kind_id: 5,
   },
   {
+    //rev_id = 2-2
     dire: "집-병원",
     pickup_x: 126.740727, // 인천 계양구
     pickup_y: 37.5268,
@@ -29,6 +31,7 @@ const testDataArr2 = [
     service_kind_id: 2,
   },
   {
+    //rev_id = 2-3
     dire: "병원-집",
     pickup_x: 0,
     pickup_y: 0,
@@ -37,12 +40,13 @@ const testDataArr2 = [
     hos_x: 126.940348, // 세브란스병원(서울 서대문구)
     hos_y: 37.562325,
     old_hos_arr_time: "",
-    old_hos_dep_time: "11:35:00",
+    old_hos_dep_time: "11:40:00",
     rev_date: "2022-03-04",
     gowithHospitalTime: 0, // 네츠 무브
     service_kind_id: 1,
   },
   {
+    //rev_id = 2-4
     dire: "집-집",
     pickup_x: 127.12922, // 서울 송파구
     pickup_y: 37.510276,
@@ -57,6 +61,7 @@ const testDataArr2 = [
     service_kind_id: 3,
   },
   {
+    //rev_id = 2-5
     dire: "집-병원",
     pickup_x: 127.045921, // 서울 동대문구
     pickup_y: 37.574907,
@@ -71,6 +76,7 @@ const testDataArr2 = [
     service_kind_id: 2,
   },
   {
+    //rev_id = 2-6
     dire: "병원-집",
     pickup_x: 0,
     pickup_y: 0,
@@ -79,7 +85,7 @@ const testDataArr2 = [
     hos_x: 126.965514, // 평촌부부한의원(경기 안양시)
     hos_y: 37.396288,
     old_hos_arr_time: "",
-    old_hos_dep_time: "17:25:00",
+    old_hos_dep_time: "17:20:00",
     rev_date: "2022-03-04",
     gowithHospitalTime: 130, // 2시간 초과
     service_kind_id: 4,
