@@ -25,7 +25,7 @@ const GetDispatchAvailableCar = async (L2, drop_x, drop_y, hos_time) => {
       if (ToKoreanTime(AddMinuteToDate(new_hos_time, 20)) < ToKoreanTime(d))
         L3.push({
           car_id: L2[i].car_id,
-          prevArrivalTime: L2[i].prevArrivalTime,
+          prevDepartureTime: L2[i].prevDepartureTime,
         });
     });
   }

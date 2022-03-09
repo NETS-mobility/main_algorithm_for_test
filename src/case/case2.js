@@ -1,6 +1,6 @@
 import GetDispatchResult from "../algorithm/getDispatchResult";
 import GetEstimatedTime from "../algorithm/getEstimatedTime";
-import GetPrevArrivalTime from "../algorithm/getPrevArrivalTime";
+import GetPrevDepartureTime from "../algorithm/getPrevDepartureTime";
 import GetDispatchAvailableCar from "../algorithm/getDispatchAvailableCar";
 import GetL1 from "../algorithm/getL1";
 import GetL2 from "../algorithm/getL2";
@@ -20,7 +20,7 @@ const Case2 = async (testData, isCase2) => {
     service_kind_id,
   } = testData;
 
-  let pickupTime, prevArrivalTimeArray;
+  let pickupTime, prevDepartureTimeArray;
   let L1, L2, L3;
 
   let hos_dep_time = rev_date + "T" + old_hos_dep_time + "+0900";
@@ -49,15 +49,15 @@ const Case2 = async (testData, isCase2) => {
   L1 = GetL1(estimatedTime, pickupTime);
   console.log("case2 L1==", L1);
 
-  prevArrivalTimeArray = await GetPrevArrivalTime(
+  prevDepartureTimeArray = await GetPrevDepartureTime(
     L1,
     hos_x,
     hos_y,
     ToKoreanTime(new Date(pickupTime))
   ).then((res) => res);
-  console.log("case2 prevArrivalTimeArray==", prevArrivalTimeArray);
+  console.log("case2 prevDepartureTimeArray==", prevDepartureTimeArray);
 
-  L2 = GetL2(prevArrivalTimeArray);
+  L2 = GetL2(prevDepartureTimeArray);
   console.log("case2 L2==", L2);
 
   L3 = await GetDispatchAvailableCar(

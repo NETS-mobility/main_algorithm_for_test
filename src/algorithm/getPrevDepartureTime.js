@@ -2,8 +2,8 @@ import TmapTimeMachine from "./tmapTimeMachine";
 import Func from "./getCarPreNextRevInfo";
 import AddMinuteToDate from "../util/addMinuteToDate";
 
-const GetPrevArrivalTime = async (L1, res_x, res_y, pickupTime) => {
-  const prevArrivalTimeArray = [];
+const GetPrevDepartureTime = async (L1, res_x, res_y, pickupTime) => {
+  const prevDepartureTimeArray = [];
   try {
     for (let i = 0; i < L1.length; i++) {
       const car_schedule = Func(i);
@@ -21,16 +21,16 @@ const GetPrevArrivalTime = async (L1, res_x, res_y, pickupTime) => {
           resDate,
           -tmapTime.estimatedTime
         ).toString();
-        prevArrivalTimeArray.push({
+        prevDepartureTimeArray.push({
           car_id: L1[i].car_id,
-          prevArrivalTime: new Date(ctime),
+          prevDepartureTime: new Date(ctime),
         });
       });
     }
   } catch (err) {
     return err;
   }
-  return prevArrivalTimeArray;
+  return prevDepartureTimeArray;
 };
 
-export default GetPrevArrivalTime;
+export default GetPrevDepartureTime;
