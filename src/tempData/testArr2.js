@@ -24,7 +24,7 @@ const testDataArr2 = [
     drop_y: 0,
     hos_x: 126.988788, // 인제대학교 서울백병원(서울 중구)
     hos_y: 37.564963,
-    old_hos_arr_time: "14:10:00",
+    old_hos_arr_time: "14:20:00",
     old_hos_dep_time: "",
     rev_date: "2022-03-04",
     gowithHospitalTime: 30, // 2시간 이하(기본)
@@ -69,7 +69,7 @@ const testDataArr2 = [
     drop_y: 0,
     hos_x: 127.141218, // 무지개연합의원(경기 구리시)
     hos_y: 37.612598,
-    old_hos_arr_time: "14:15:00",
+    old_hos_arr_time: "14:40:00",
     old_hos_dep_time: "",
     rev_date: "2022-03-04",
     gowithHospitalTime: 60, // 2시간 이하
