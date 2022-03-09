@@ -1,8 +1,8 @@
-import GetDispatchResult from "../algorithm/GetDispatchResult";
-import GetEstimatedTime from "../algorithm/GetEstimatedTime";
-import GetPickupTime from "../algorithm/GetPickupTime";
-import GetPrevArrivalTime from "../algorithm/GetPrevArrivalTime";
-import GetDispatchAvailableCar from "../algorithm/GetDispatchAvailableCar";
+import GetDispatchResult from "../algorithm/getDispatchResult";
+import GetEstimatedTime from "../algorithm/getEstimatedTime";
+import GetPickupTime from "../algorithm/getPickupTime";
+import GetPrevArrivalTime from "../algorithm/getPrevArrivalTime";
+import GetDispatchAvailableCar from "../algorithm/getDispatchAvailableCar";
 import GetL1 from "../algorithm/getL1";
 import GetL2 from "../algorithm/getL2";
 import AddMinuteToDate from "../util/addMinuteToDate";
@@ -48,12 +48,15 @@ const Case1 = async (testData, isCase1) => {
   L1 = GetL1(estimatedTime, pickupTime); //백엔드에서 test 필요
   console.log("case1 L1==", L1);
 
-  prevArrivalTimeArray = await GetPrevArrivalTime(L1, pickup_x, pickup_y).then(
-    (res) => res
-  );
+  prevArrivalTimeArray = await GetPrevArrivalTime(
+    L1,
+    pickup_x,
+    pickup_y,
+    ToKoreanTime(new Date(pickupTime))
+  ).then((res) => res);
   console.log("case1 prevArrivalTimeArray==", prevArrivalTimeArray);
 
-  L2 = GetL2(pickupTime, prevArrivalTimeArray);
+  L2 = GetL2(prevArrivalTimeArray);
   console.log("case1 L2==", L2);
 
   L3 = await GetDispatchAvailableCar(

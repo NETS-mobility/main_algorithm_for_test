@@ -2,7 +2,7 @@ import TmapTimeMachine from "./tmapTimeMachine";
 import Func from "./getCarPreNextRevInfo";
 import AddMinuteToDate from "../util/addMinuteToDate";
 
-const GetPrevArrivalTime = async (L1, res_x, res_y) => {
+const GetPrevArrivalTime = async (L1, res_x, res_y, pickupTime) => {
   const prevArrivalTimeArray = [];
   try {
     for (let i = 0; i < L1.length; i++) {
@@ -13,14 +13,14 @@ const GetPrevArrivalTime = async (L1, res_x, res_y) => {
         car_schedule.prev_last_x,
         res_y,
         res_x,
-        "arrival",
-        car_schedule.prev_terminate_time
+        "departure",
+        pickupTime
       ).then((tmapTime) => {
-        const resDate = new Date(car_schedule.prev_terminate_time);
+        const resDate = new Date(pickupTime);
         const ctime = AddMinuteToDate(
           resDate,
-          tmapTime.estimatedTime
-        ).toString(); //tmap(이전예약->현재 예약 픽업 장소) + 20
+          -tmapTime.estimatedTime
+        ).toString();
         prevArrivalTimeArray.push({
           car_id: L1[i].car_id,
           prevArrivalTime: new Date(ctime),

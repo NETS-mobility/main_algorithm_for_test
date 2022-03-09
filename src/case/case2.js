@@ -1,7 +1,7 @@
-import GetDispatchResult from "../algorithm/GetDispatchResult";
-import GetEstimatedTime from "../algorithm/GetEstimatedTime";
-import GetPrevArrivalTime from "../algorithm/GetPrevArrivalTime";
-import GetDispatchAvailableCar from "../algorithm/GetDispatchAvailableCar";
+import GetDispatchResult from "../algorithm/getDispatchResult";
+import GetEstimatedTime from "../algorithm/getEstimatedTime";
+import GetPrevArrivalTime from "../algorithm/getPrevArrivalTime";
+import GetDispatchAvailableCar from "../algorithm/getDispatchAvailableCar";
 import GetL1 from "../algorithm/getL1";
 import GetL2 from "../algorithm/getL2";
 import ToKoreanTime from "../util/toKoreanTime";
@@ -49,12 +49,15 @@ const Case2 = async (testData, isCase2) => {
   L1 = GetL1(estimatedTime, pickupTime);
   console.log("case2 L1==", L1);
 
-  prevArrivalTimeArray = await GetPrevArrivalTime(L1, hos_x, hos_y).then(
-    (res) => res
-  );
+  prevArrivalTimeArray = await GetPrevArrivalTime(
+    L1,
+    hos_x,
+    hos_y,
+    ToKoreanTime(new Date(pickupTime))
+  ).then((res) => res);
   console.log("case2 prevArrivalTimeArray==", prevArrivalTimeArray);
 
-  L2 = GetL2(pickupTime, prevArrivalTimeArray);
+  L2 = GetL2(prevArrivalTimeArray);
   console.log("case2 L2==", L2);
 
   L3 = await GetDispatchAvailableCar(

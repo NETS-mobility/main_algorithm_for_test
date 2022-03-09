@@ -3,7 +3,7 @@ const GetDispatchResult = (L3) => {
     return -1;
   }
   const opt = L3.sort(function (a, b) {
-    return b.prevArrivalTime - a.prevArrivalTime;
+    return a.prevArrivalTime - b.prevArrivalTime;
   });
 
   return opt;

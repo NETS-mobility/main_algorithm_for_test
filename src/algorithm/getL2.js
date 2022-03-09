@@ -1,8 +1,13 @@
 import ToKoreanTime from "../util/toKoreanTime";
-const GetL2 = (b, prevArrivalTimeArray) => {
+import Func from "./getCarPreNextRevInfo";
+const GetL2 = (prevArrivalTimeArray) => {
   const L2 = [];
   for (let i = 0; i < prevArrivalTimeArray.length; i++) {
-    if (ToKoreanTime(prevArrivalTimeArray[i].prevArrivalTime) < b) {
+    const car_schedule = Func(i);
+    if (
+      ToKoreanTime(prevArrivalTimeArray[i].prevArrivalTime) >
+      car_schedule.prev_terminate_time
+    ) {
       L2.push(prevArrivalTimeArray[i]);
     }
   }
