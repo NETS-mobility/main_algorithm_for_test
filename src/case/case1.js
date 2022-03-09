@@ -3,10 +3,12 @@ import GetEstimatedTime from "../algorithm/GetEstimatedTime";
 import GetPickupTime from "../algorithm/GetPickupTime";
 import GetPrevArrivalTime from "../algorithm/GetPrevArrivalTime";
 import GetDispatchAvailableCar from "../algorithm/GetDispatchAvailableCar";
-import GetL1 from "../algorithm/GetL1";
-import GetL2 from "../algorithm/GetL2";
+import GetL1 from "../algorithm/getL1";
+import GetL2 from "../algorithm/getL2";
+import AddMinuteToDate from "../util/addMinuteToDate";
+import ToKoreanTime from "../util/toKoreanTime";
 
-const Case1 = async (testData) => {
+const Case1 = async (testData, isCase1) => {
   const {
     dire,
     pickup_x,
@@ -14,23 +16,30 @@ const Case1 = async (testData) => {
     hos_x,
     hos_y,
     old_hos_arr_time,
+    gowithHospitalTime,
     rev_date,
     service_kind_id,
   } = testData;
 
-  let estimatedTime, pickupTime, prevArrivalTimeArray;
+  let pickupTime, prevArrivalTimeArray;
   let L1, L2, L3;
-  let dispatch;
   let hos_arr_time = rev_date + "T" + old_hos_arr_time + "+0900";
+  let gowithTime = 0;
+  if (isCase1) {
+    gowithTime = gowithHospitalTime;
+  }
 
-  console.log("hello I'm case1");
-  estimatedTime = await GetEstimatedTime(
+  let estimatedData = await GetEstimatedTime(
     { lon: pickup_y, lat: pickup_x },
     { lon: hos_y, lat: hos_x },
     dire,
     hos_arr_time,
     service_kind_id
   ).then((res) => res);
+
+  let estimatedTime = estimatedData.time;
+  let estimatedDist = estimatedData.dist;
+
   console.log("case1 estimatedTime==", estimatedTime);
 
   pickupTime = GetPickupTime(hos_arr_time, estimatedTime);
@@ -47,18 +56,31 @@ const Case1 = async (testData) => {
   L2 = GetL2(pickupTime, prevArrivalTimeArray);
   console.log("case1 L2==", L2);
 
-  L3 = await GetDispatchAvailableCar(L2, hos_x, hos_y, hos_arr_time).then(
-    (res) => res
-  );
+  L3 = await GetDispatchAvailableCar(
+    L2,
+    hos_x,
+    hos_y,
+    AddMinuteToDate(new Date(hos_arr_time), gowithTime)
+  ).then((res) => res);
   console.log("case1 L3==", L3);
 
-  dispatch = GetDispatchResult(L3);
-  console.log("case1 dispatch==", dispatch);
-  if (dispatch == -1) {
+  const ResultData = {
+    dispatch: GetDispatchResult(L3),
+    expect_pickup_time: pickupTime, //pickupTime
+    expect_terminate_service_time: ToKoreanTime(
+      AddMinuteToDate(new Date(hos_arr_time), gowithTime)
+    ),
+    expect_move_distance: estimatedDist / 1000, //GetEstimatedTime돌렸을 때 나온 총 거리
+    expect_move_time: estimatedTime / 60000, //estimatedTime
+  };
+
+  console.log("case1 dispatch==", ResultData.dispatch);
+  if (ResultData.dispatch == -1) {
     return -1;
   } else {
-    return dispatch[0].car_id; //최종 배차된 차의 car_id
-  }
+    console.log(ResultData);
+    return ResultData.dispatch[0].car_id;
+  } //최종 배차된 차의 car_id
 };
 
 export default Case1;

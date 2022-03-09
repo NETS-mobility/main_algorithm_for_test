@@ -37,6 +37,8 @@ const TmapTimeMachine = async (
 
   //예상 소요시간 계산
   let estimatedTime = 0;
+  //예상 소요거리 계산
+  let estimatedDistance = 0;
 
   //API에서 data받아오기
   try {
@@ -47,7 +49,11 @@ const TmapTimeMachine = async (
       data: data,
     });
     estimatedTime = Math.round(res.data.features[0].properties.totalTime / 60); //tmap에서 계산한 시간에서 반올림(단위: 분)
-    return estimatedTime;
+    estimatedDistance = res.data.features[0].properties.totalDistance;
+    return {
+      estimatedTime: estimatedTime,
+      estimatedDistance: estimatedDistance,
+    };
   } catch (err) {
     console.log(err);
   }

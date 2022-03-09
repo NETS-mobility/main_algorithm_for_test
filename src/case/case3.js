@@ -3,9 +3,10 @@ import GetEstimatedTime from "../algorithm/GetEstimatedTime";
 import GetPickupTime from "../algorithm/GetPickupTime";
 import GetPrevArrivalTime from "../algorithm/GetPrevArrivalTime";
 import GetDispatchAvailableCar from "../algorithm/GetDispatchAvailableCar";
-import GetL1 from "../algorithm/GetL1";
-import GetL2 from "../algorithm/GetL2";
+import GetL1 from "../algorithm/getL1";
+import GetL2 from "../algorithm/getL2";
 import AddMinuteToDate from "../util/addMinuteToDate";
+import ToKoreanTime from "../util/toKoreanTime";
 
 const Case3 = async (testData) => {
   const {
@@ -21,20 +22,23 @@ const Case3 = async (testData) => {
     service_kind_id,
   } = testData;
 
-  let toHosEstimatedTime, pickupTime, prevArrivalTimeArray, toHomeEstimatedTime;
+  let pickupTime, prevArrivalTimeArray;
   let L1, L2, L3;
   let dispatch;
   let hos_arr_time = rev_date + "T" + old_hos_arr_time + "+0900";
   let hos_dep_time = rev_date + "T" + old_hos_dep_time + "+0900";
 
-  toHosEstimatedTime = await GetEstimatedTime(
+  let toHosEstimated = await GetEstimatedTime(
     { lon: pickup_y, lat: pickup_x },
     { lon: hos_y, lat: hos_x },
     "집-병원",
     hos_arr_time,
     service_kind_id
   ).then((res) => res);
-  console.log("case3 toHosEstimatedTime==", toHosEstimatedTime);
+  console.log("case3 toHosEstimatedTime==", toHosEstimated.time);
+
+  let toHosEstimatedTime = toHosEstimated.time;
+  let toHosEstimatedDist = toHosEstimated.dist;
 
   pickupTime = GetPickupTime(hos_arr_time, toHosEstimatedTime);
   console.log("case3 pickupTime==", pickupTime);
@@ -50,14 +54,16 @@ const Case3 = async (testData) => {
   L2 = GetL2(pickupTime, prevArrivalTimeArray);
   console.log("case3 L2==", L2);
 
-  toHomeEstimatedTime = await GetEstimatedTime(
+  let toHomeEstimated = await GetEstimatedTime(
     { lon: hos_y, lat: hos_x },
     { lon: drop_y, lat: drop_x },
     "병원-집",
     hos_dep_time,
     service_kind_id
   ).then((res) => res);
-  console.log("case3 toHomeEstimatedTime==", toHomeEstimatedTime);
+  console.log("case3 toHomeEstimatedTime==", toHomeEstimated.time);
+  let toHomeEstimatedTime = toHomeEstimated.time;
+  let toHomeEstimatedDist = toHomeEstimated.dist;
 
   L3 = await GetDispatchAvailableCar(
     L2,
@@ -67,13 +73,24 @@ const Case3 = async (testData) => {
   ).then((res) => res);
   console.log("case3 L3==", L3);
 
-  dispatch = GetDispatchResult(L3);
-  console.log("case3 dispatch==", dispatch);
+  const ResultData = {
+    dispatch: GetDispatchResult(L3),
+    expect_pickup_time: pickupTime,
+    expect_terminate_service_time: ToKoreanTime(
+      AddMinuteToDate(new Date(hos_dep_time), toHomeEstimatedTime / 60000)
+    ),
+    expect_move_distance: (toHomeEstimatedDist + toHosEstimatedDist) / 1000, //GetEstimatedTime돌렸을 때 나온 총 거리
+    expect_move_time: (toHomeEstimatedTime + toHosEstimatedTime) / 60000, //estimatedTime
+  };
 
-  if (dispatch == -1) {
+  // dispatch = GetDispatchResult(L3);
+  console.log("case3 dispatch==", ResultData.dispatch);
+
+  if (ResultData.dispatch == -1) {
     return -1;
   } else {
-    return dispatch[0].car_id; //최종 배차된 차의 car_id
+    console.log(ResultData);
+    return ResultData.dispatch[0].car_id; //최종 배차된 차의 car_id
   }
 };
 

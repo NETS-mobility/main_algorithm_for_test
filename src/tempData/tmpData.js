@@ -10,7 +10,7 @@ const testData1 = {
   old_hos_arr_time: "15:00:00",
   old_hos_dep_time: "",
   rev_date: "2022-03-04",
-  gowithHospitalTime: 0,
+  gowithHospitalTime: 30,
   service_kind_id: 4,
 };
 const testData2 = {
@@ -24,7 +24,7 @@ const testData2 = {
   old_hos_arr_time: "",
   old_hos_dep_time: "14:00:00",
   rev_date: "2022-03-04",
-  gowithHospitalTime: 0,
+  gowithHospitalTime: 30,
   service_kind_id: 4,
 };
 const testData3 = {

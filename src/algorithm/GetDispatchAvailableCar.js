@@ -1,6 +1,6 @@
 import TmapTimeMachine from "./tmapTimeMachine";
 import ToKoreanTime from "../util/toKoreanTime";
-import Func from "./GetCarPreNextRevInfo";
+import Func from "./getCarPreNextRevInfo";
 import AddMinuteToDate from "../util/addMinuteToDate";
 const GetDispatchAvailableCar = async (L2, drop_x, drop_y, hos_time) => {
   const L3 = [];
@@ -19,8 +19,9 @@ const GetDispatchAvailableCar = async (L2, drop_x, drop_y, hos_time) => {
       nextRes.post_pickup_time
     ).then((tmapTime) => {
       const resDate = new Date(nextRes.post_pickup_time);
-      const d = AddMinuteToDate(resDate, -tmapTime);
+      const d = AddMinuteToDate(resDate, -tmapTime.estimatedTime);
       console.log("this is d===========", d);
+      console.log("newHosTime=", new_hos_time);
       if (ToKoreanTime(AddMinuteToDate(new_hos_time, 20)) < ToKoreanTime(d))
         L3.push({
           car_id: L2[i].car_id,
