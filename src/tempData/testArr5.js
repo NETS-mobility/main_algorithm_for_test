@@ -10,9 +10,9 @@ const testDataArr5 = [
     hos_y: 37.63631680493571,
     old_hos_arr_time: "10:00:00",
     old_hos_dep_time: "13:00:00",
-    rev_date: "2022-03-10",
+    rev_date: "2022-03-04",
     gowithHospitalTime: 180, // (2시간 이상)
-    service_kind_id: 3, // (왕복)
+    service_kind_id: 5, // (왕복)
   },
   {
     dire: "집-병원",
@@ -24,9 +24,9 @@ const testDataArr5 = [
     hos_y: 37.58683686821452,
     old_hos_arr_time: "15:00:00",
     old_hos_dep_time: "",
-    rev_date: "2022-03-23",
+    rev_date: "2022-03-04",
     gowithHospitalTime: 60, // 30분 초과, 2시간 이하
-    service_kind_id: 2, // 편도
+    service_kind_id: 4, // 편도
   },
   {
     dire: "병원-집",
@@ -38,9 +38,9 @@ const testDataArr5 = [
     hos_y: 37.58702063840712,
     old_hos_arr_time: "",
     old_hos_dep_time: "17:30:00",
-    rev_date: "2022-03-20",
+    rev_date: "2022-03-04",
     gowithHospitalTime: 0,
-    service_kind_id: 1, // 네츠 무브
+    service_kind_id: 4,
   },
   {
     dire: "집-집",
@@ -52,7 +52,7 @@ const testDataArr5 = [
     hos_y: 37.58702063840712,
     old_hos_arr_time: "13:00:00",
     old_hos_dep_time: "14:30:00",
-    rev_date: "2022-03-15",
+    rev_date: "2022-03-04",
     gowithHospitalTime: 90, // 1시간 초과, 2시간 이하
     service_kind_id: 5, //5:네츠휠체어플러스왕복
   },
@@ -66,9 +66,9 @@ const testDataArr5 = [
     hos_y: 37.58702063840712,
     old_hos_arr_time: "",
     old_hos_dep_time: "10:30:00",
-    rev_date: "2022-03-21",
+    rev_date: "2022-03-04",
     gowithHospitalTime: 0,
-    service_kind_id: 1, // 네츠무브
+    service_kind_id: 4,
   },
   {
     dire: "병원-집",
@@ -80,7 +80,7 @@ const testDataArr5 = [
     hos_y: 37.501624756074456,
     old_hos_arr_time: "",
     old_hos_dep_time: "17:40:00",
-    rev_date: "2022-03-09",
+    rev_date: "2022-03-04",
     gowithHospitalTime: 30, // 30분(기본)
     service_kind_id: 4, // 편도 플러스
   },

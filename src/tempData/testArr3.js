@@ -79,7 +79,7 @@ const testDataArr3 = [
     old_hos_dep_time: "09:40:00",
     rev_date: "2022-03-04",
     gowithHospitalTime: 0,
-    service_kind_id: 2,
+    service_kind_id: 4,
   },
   {
     //rev_id = 3-3
@@ -131,8 +131,8 @@ const testDataArr3 = [
     old_hos_arr_time: "11:00:00",
     old_hos_dep_time: "13:00:00",
     rev_date: "2022-03-04",
-    gowithHospitalTime: 120,
-    service_kind_id: 3,
+    gowithHospitalTime: 121,
+    service_kind_id: 5,
   },
   {
     //rev_id = 3-6

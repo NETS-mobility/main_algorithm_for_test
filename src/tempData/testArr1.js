@@ -13,7 +13,7 @@ const testDataArr1 = [
     old_hos_dep_time: "15:00:00",
     rev_date: "2022-03-04",
     gowithHospitalTime: 180,
-    service_kind_id: 3,
+    service_kind_id: 5,
   },
   {
     //rev_id = 1-2
@@ -28,7 +28,7 @@ const testDataArr1 = [
     old_hos_dep_time: "",
     rev_date: "2022-03-04",
     gowithHospitalTime: 0,
-    service_kind_id: 1,
+    service_kind_id: 4,
   },
   {
     //rev_id = 1-3
@@ -43,7 +43,7 @@ const testDataArr1 = [
     old_hos_dep_time: "11:00:00",
     rev_date: "2022-03-04",
     gowithHospitalTime: 0,
-    service_kind_id: 2,
+    service_kind_id: 4,
   },
   {
     //rev_id = 1-4
@@ -73,7 +73,7 @@ const testDataArr1 = [
     old_hos_dep_time: "",
     rev_date: "2022-03-04",
     gowithHospitalTime: 0,
-    service_kind_id: 1,
+    service_kind_id: 4,
   },
   {
     //rev_id = 1-6

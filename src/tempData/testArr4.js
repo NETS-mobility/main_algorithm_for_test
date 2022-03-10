@@ -1,6 +1,6 @@
 //최지우
 
-export const testDataArr4 = [
+const testDataArr4 = [
   {
     //rev_id = 4-1
     dire: "집-집",
@@ -14,7 +14,7 @@ export const testDataArr4 = [
     old_hos_dep_time: "12:20:00",
     rev_date: "2022-03-04",
     gowithHospitalTime: 200, // 2시간 초과
-    service_kind_id: 3,
+    service_kind_id: 5,
   },
   {
     //rev_id = 4-2
@@ -29,7 +29,7 @@ export const testDataArr4 = [
     old_hos_dep_time: "11:00:00",
     rev_date: "2022-03-04",
     gowithHospitalTime: 60, // 2시간 이하
-    service_kind_id: 3,
+    service_kind_id: 5,
   },
   {
     //rev_id = 4-3
@@ -89,7 +89,7 @@ export const testDataArr4 = [
     old_hos_dep_time: "",
     rev_date: "2022-03-04",
     gowithHospitalTime: 50, // 병원동행 50분
-    service_kind_id: 2,
+    service_kind_id: 4,
   },
 ];
 

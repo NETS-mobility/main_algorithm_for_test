@@ -39,15 +39,11 @@ const Case2 = async (testData, isCase2) => {
   let estimatedTime = estimatedData.time;
   let estimatedDist = estimatedData.dist;
 
-  console.log("case2 estimatedTime==", estimatedTime);
-
   pickupTime = ToKoreanTime(
     AddMinuteToDate(new Date(hos_dep_time), -gowithTime)
   );
-  console.log("case2 pickupTime==", pickupTime);
 
   L1 = GetL1(estimatedTime, pickupTime);
-  console.log("case2 L1==", L1);
 
   prevDepartureTimeArray = await GetPrevDepartureTime(
     L1,
@@ -55,10 +51,8 @@ const Case2 = async (testData, isCase2) => {
     hos_y,
     ToKoreanTime(new Date(pickupTime))
   ).then((res) => res);
-  console.log("case2 prevDepartureTimeArray==", prevDepartureTimeArray);
 
   L2 = GetL2(prevDepartureTimeArray);
-  console.log("case2 L2==", L2);
 
   L3 = await GetDispatchAvailableCar(
     L2,
@@ -66,7 +60,6 @@ const Case2 = async (testData, isCase2) => {
     drop_y,
     AddMinuteToDate(new Date(hos_dep_time), estimatedTime / 60000)
   ).then((res) => res);
-  console.log("case2 L3==", L3);
 
   const ResultData = {
     dispatch: GetDispatchResult(L3),
@@ -77,13 +70,12 @@ const Case2 = async (testData, isCase2) => {
     expect_move_distance: estimatedDist / 1000,
     expect_move_time: estimatedTime / 60000,
   };
-  console.log("case2 dispatch==", ResultData.dispatch);
 
   if (ResultData.dispatch == -1) {
     return -1;
   } else {
     console.log(ResultData);
-    return ResultData.dispatch[0].car_id; //최종 배차된 차의 car_id
+    return ResultData; //최종 배차된 차의 car_id
   }
 };
 

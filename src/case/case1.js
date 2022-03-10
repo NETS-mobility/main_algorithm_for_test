@@ -23,7 +23,7 @@ const Case1 = async (testData, isCase1) => {
 
   let pickupTime, prevDepartureTimeArray;
   let L1, L2, L3;
-  let hos_arr_time = rev_date + "T" + old_hos_arr_time + "+0900";
+  let hos_arr_time = rev_date + "T" + old_hos_arr_time + "+0900"; //00-00-00T00:00:00+0900
   let gowithTime = 0;
   if (isCase1) {
     gowithTime = gowithHospitalTime;
@@ -33,20 +33,16 @@ const Case1 = async (testData, isCase1) => {
     { lon: pickup_y, lat: pickup_x },
     { lon: hos_y, lat: hos_x },
     dire,
-    hos_arr_time,
+    hos_arr_time, //00-00-00T00:00:00+0900
     service_kind_id
   ).then((res) => res);
 
-  let estimatedTime = estimatedData.time;
+  let estimatedTime = estimatedData.time; //밀리
   let estimatedDist = estimatedData.dist;
 
-  console.log("case1 estimatedTime==", estimatedTime);
-
-  pickupTime = GetPickupTime(hos_arr_time, estimatedTime);
-  console.log("case1 pickupTime==", pickupTime);
+  pickupTime = GetPickupTime(hos_arr_time, estimatedTime); //pickupTime = 00-00-00T00:00:00+0900
 
   L1 = GetL1(estimatedTime, pickupTime); //백엔드에서 test 필요
-  console.log("case1 L1==", L1);
 
   prevDepartureTimeArray = await GetPrevDepartureTime(
     L1,
@@ -54,10 +50,8 @@ const Case1 = async (testData, isCase1) => {
     pickup_y,
     ToKoreanTime(new Date(pickupTime))
   ).then((res) => res);
-  console.log("case1 prevDepartureTimeArray==", prevDepartureTimeArray);
 
   L2 = GetL2(prevDepartureTimeArray);
-  console.log("case1 L2==", L2);
 
   L3 = await GetDispatchAvailableCar(
     L2,
@@ -65,7 +59,6 @@ const Case1 = async (testData, isCase1) => {
     hos_y,
     AddMinuteToDate(new Date(hos_arr_time), gowithTime)
   ).then((res) => res);
-  console.log("case1 L3==", L3);
 
   const ResultData = {
     dispatch: GetDispatchResult(L3),
@@ -77,12 +70,11 @@ const Case1 = async (testData, isCase1) => {
     expect_move_time: estimatedTime / 60000, //estimatedTime
   };
 
-  console.log("case1 dispatch==", ResultData.dispatch);
   if (ResultData.dispatch == -1) {
     return -1;
   } else {
     console.log(ResultData);
-    return ResultData.dispatch[0].car_id;
+    return ResultData;
   } //최종 배차된 차의 car_id
 };
 

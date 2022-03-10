@@ -24,7 +24,6 @@ const Case3 = async (testData) => {
 
   let pickupTime, prevDepartureTimeArray;
   let L1, L2, L3;
-  let dispatch;
   let hos_arr_time = rev_date + "T" + old_hos_arr_time + "+0900";
   let hos_dep_time = rev_date + "T" + old_hos_dep_time + "+0900";
 
@@ -35,16 +34,13 @@ const Case3 = async (testData) => {
     hos_arr_time,
     service_kind_id
   ).then((res) => res);
-  console.log("case3 toHosEstimatedTime==", toHosEstimated.time);
 
   let toHosEstimatedTime = toHosEstimated.time;
   let toHosEstimatedDist = toHosEstimated.dist;
 
   pickupTime = GetPickupTime(hos_arr_time, toHosEstimatedTime);
-  console.log("case3 pickupTime==", pickupTime);
 
   L1 = GetL1(toHosEstimatedTime, pickupTime);
-  console.log("case3 L1==", L1);
 
   prevDepartureTimeArray = await GetPrevDepartureTime(
     L1,
@@ -52,10 +48,8 @@ const Case3 = async (testData) => {
     pickup_y,
     ToKoreanTime(new Date(pickupTime))
   ).then((res) => res);
-  console.log("case3 prevDepartureTimeArray==", prevDepartureTimeArray);
 
   L2 = GetL2(prevDepartureTimeArray);
-  console.log("case3 L2==", L2);
 
   let toHomeEstimated = await GetEstimatedTime(
     { lon: hos_y, lat: hos_x },
@@ -64,7 +58,6 @@ const Case3 = async (testData) => {
     hos_dep_time,
     service_kind_id
   ).then((res) => res);
-  console.log("case3 toHomeEstimatedTime==", toHomeEstimated.time);
   let toHomeEstimatedTime = toHomeEstimated.time;
   let toHomeEstimatedDist = toHomeEstimated.dist;
 
@@ -74,7 +67,6 @@ const Case3 = async (testData) => {
     drop_y,
     AddMinuteToDate(new Date(hos_dep_time), toHomeEstimatedTime / 60000)
   ).then((res) => res);
-  console.log("case3 L3==", L3);
 
   const ResultData = {
     dispatch: GetDispatchResult(L3),
@@ -86,14 +78,11 @@ const Case3 = async (testData) => {
     expect_move_time: (toHomeEstimatedTime + toHosEstimatedTime) / 60000, //estimatedTime
   };
 
-  // dispatch = GetDispatchResult(L3);
-  console.log("case3 dispatch==", ResultData.dispatch);
-
   if (ResultData.dispatch == -1) {
     return -1;
   } else {
     console.log(ResultData);
-    return ResultData.dispatch[0].car_id; //최종 배차된 차의 car_id
+    return ResultData; //최종 배차된 차의 car_id
   }
 };
 

@@ -10,6 +10,8 @@
 case1. 편도(자택 -> 병원)
 a1 = 자택 -> 병원 예상 소요시간                //20분
      = tmap(자택 -> 병원) + 20 + X
+     tmap(pickup주소, hos주소, 출발시간 구해야함(departure), 도착하고싶은 시간(hos_arr_time보다 20분 일찍)) + X
+     
      -> GetEstimatedTime
 
 b1 = 픽업 장소에 도착해야 되는 시간(must)      //08:00:00

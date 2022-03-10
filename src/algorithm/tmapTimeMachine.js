@@ -8,7 +8,7 @@ const TmapTimeMachine = async (
   predictionTime
 ) => {
   var headers = {};
-  headers["appKey"] = "l7xxa020ecbe57d34fe9af21f362f0b1da17"; //앱키 삽입해야 함
+  headers["appKey"] = "l7xxabe561b70fd34063bb41a5d73ccfd8a4"; //앱키 삽입해야 함
   headers["Content-Type"] = "application/json";
 
   //value = "2" : 총 소요시간, 소요 거리만 확인하는 옵션
